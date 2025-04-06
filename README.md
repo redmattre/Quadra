@@ -1,41 +1,36 @@
 # Quadra - Soundscape Polar Controller
 
-Quadra è un plugin che converte coordinate polari in coordinate cartesiane per il sistema d&b Soundscape.  
-Permette di trasferire automazioni ambisonic dal plugin IEM Stereo Encoder al plugin d&b Soundscape,  
-utilizzando messaggi MIDI CC a 14 bit.
+Quadra is a plugin that converts polar coordinates into cartesian coordinates.
 
-## Funzionamento
+---
+![Quadra in action](quadra1.gif)
+---
 
-1. Il plugin IEM Stereo Encoder genera automazioni ambisonic.
-2. Quadra converte le coordinate polari in coordinate cartesiane.
-3. Le coordinate X e Y vengono inviate come messaggi MIDI CC 14-bit.
-4. Il plugin d&b Soundscape riceve i dati e controlla la posizione del suono.
+## How it works
 
-## Routing MIDI
+The following example shows how Quadra can be used to convert ambisonic polar coordinates (azimuth and elevation) into 2D cartesian coordinates for use with the d&b Soundscape object-based spatialization system.
 
-- X: CC 1-33
+1. The IEM Stereo Encoder plugin generates ambisonic automation.
+2. Quadra converts polar coordinates into cartesian coordinates (you can either copy the ambisonc automations or link the azimuth and elevation of your ambisonic plugin).
+3. Quadra sends out X and Y positions as 14-bit MIDI CC messages that can be routed to another plugin parameter.
+4. In this case the d&b Soundscape plugin receives the data and controls the spatial position of the sound.
+
+## Coordinate conversion
+
+The mathematical logic behind Quadra is based on projecting a point on a sphere (defined by an azimuth and a perimeter angle) onto a 2D square.  
+Imagine looking at the sphere from above: the higher the elevation (azimuth), the closer the point moves toward the center.  
+At the edges (lower elevation), the projection follows the shape of a square.  
+At the center (higher elevation), the shape becomes more circular.
+
+This projection ensures a smooth transition from a square-shaped outer space to a circular center — like flattening an egg-shaped dome onto a square plane.
+
+## MIDI Routing
+
+- X: CC 1-33  
 - Y: CC 2-34
 
-Il MIDI output di Quadra deve essere inviato al plugin d&b Soundscape.
+note: Quadra sends MIDI output that must be routed to the d&b Soundscape plugin. In this beta version the CC values are hardcoded.
 
-## Esempio
+## Notes
 
-Di seguito un esempio del funzionamento di Quadra in Reaper.
-
-![Quadra in azione](video.gif)
-
-## Simulazione 3D
-
-Questa immagine mostra la trasformazione delle coordinate nello spazio.
-
-![Simulazione 3D](image.png)
-
-## Installazione
-
-1. Caricare Quadra come plugin MIDI in Reaper.
-2. Collegare le automazioni dal plugin IEM Stereo Encoder.
-3. Instradare l'output MIDI di Quadra verso il plugin d&b Soundscape.
-
-## Licenza
-
-Questo progetto è distribuito sotto licenza MIT.
+This project was developed as part of a PhD program, in collaboration with Tempo Reale, for use during the Bright Festival in Florence. It was designed to translate ambisonic-encoded versions of selected compositions by Luciano Berio for playback through the d&b Soundscape system.
