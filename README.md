@@ -4,6 +4,8 @@ Quadra is a plugin that converts polar coordinates into cartesian coordinates.
 
 ![Quadra in action in reaper](/media/quadra1.gif)
 
+[HD vid](https://youtu.be/orM2FkpFEi4?si=unAIbvlBuhWIQ1Fc)
+
 ## How it works
 
 The following example shows how Quadra can be used to convert ambisonic polar coordinates (azimuth and elevation) into 2D cartesian coordinates for use with the d&b Soundscape object-based spatialization system.
