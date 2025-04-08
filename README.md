@@ -39,6 +39,6 @@ note: Quadra sends MIDI output that must be routed to the d&b Soundscape plugin.
 
 ## Notes
 
-This project was developed as part of a PhD program, in collaboration with Tempo Reale, for use during the Bright Festival in Florence. It was designed to translate ambisonic-encoded versions of selected compositions by Luciano Berio for playback through the d&b Soundscape system.
+This project was developed as part of a PhD program, in collaboration with **Tempo Reale**, for use during the Bright Festival in Florence. It was designed to translate ambisonic-encoded versions of selected compositions by Luciano Berio for playback through the d&b Soundscape system.
 
-This project consists of an RNBO patcher.
+*This project consists of an RNBO patcher so it can be adapted and developed further to exchange between polar and 2/3d cartesian systems.*
